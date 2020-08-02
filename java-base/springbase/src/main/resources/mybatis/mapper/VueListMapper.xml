@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zixue.project3.dao.VueListDao">
+	<select id="getVueListAll"
+		resultType="com.zixue.project3.bean.VueList">
+		SELECT
+		u.id id,
+		u.name name,
+		u.ctime ctime
+		FROM
+		vue_list u
+	</select>
+	<insert id="insertVueList" parameterType="com.zixue.project3.bean.VueList">
+	insert into vue_list
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="ctime != null">
+				ctime,
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="ctime != null">
+				#{ctime},
+			</if>
+		
+		</trim>
+	</insert>
+	<delete id="delVue" parameterType="com.zixue.project3.bean.VueList">
+		delete from vue_list where id = #{id}
+	</delete>
+</mapper>

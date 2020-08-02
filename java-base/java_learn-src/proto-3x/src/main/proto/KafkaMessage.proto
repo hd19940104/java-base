@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+// import "ProtoHead.proto";
+
+package lacomm;
+option java_package = "com.tencent.bling";
+// option java_outer_classname = "KafkaMessage";
+
+
+message KafkaMessage {
+    int32 kind       = 1;
+    string desc      = 2;
+    // uint32 data_len  = 3;     // 业务数据长度
+    bytes data       = 4;          // 业务数据
+}

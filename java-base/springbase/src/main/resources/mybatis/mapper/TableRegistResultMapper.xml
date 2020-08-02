@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zixue.project3.dao.TableRegistResultDao">
+
+
+	<insert id="insertResult"
+		parameterType="com.zixue.project3.bean.TableRegistResult">
+		insert into tb_regist_result
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="behavior != null">
+				behavior,
+			</if>
+			<if test="channel != null">
+				channel,
+			</if>
+			<if test="min != null">
+				min,
+			</if>
+			<if test="max != null">
+				max,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="behavior != null">
+				#{behavior},
+			</if>
+			<if test="channel != null">
+				#{channel},
+			</if>
+			<if test="min != null">
+				#{min},
+			</if>
+			<if test="max != null">
+				#{max},
+			</if>
+			<if test="status != null">
+				#{status},
+			</if>
+		</trim>
+	</insert>
+	<select id="queryUserInfoResultListMap" resultType="HashMap">
+		select * from
+		tb_regist_result
+	</select>
+	<delete id="delResult">
+		delete from tb_regist_result where 1=1
+	</delete>
+	<select id="getListResultAll"
+		resultType="com.zixue.project3.bean.TableRegistResult">
+		SELECT
+		id id,
+		behavior behavior,
+		channel channel,
+		min min,
+		max max,
+		STATUS
+		STATUS
+		FROM
+		tb_regist_result
+		where 1=1
+		<trim prefix="and" suffix="" prefixOverrides="and">
+			<if test="behavior != null">
+				and behavior like concat(concat('%', #{behavior}),'%')
+			</if>
+			<if test="channel != null">
+				and channel like concat(concat('%', #{channel}),'%') 
+			</if>
+			<if test="status != null">
+				and status like concat(concat('%',  #{status}),'%') 
+			</if>
+		</trim>
+	</select>
+
+	<select id="getResltToBehavior" resultType="String">
+		select behavior from
+		tb_regist_result group by behavior
+	</select>
+	<select id="getResltToChannel" resultType="String">
+		select channel from
+		tb_regist_result group by channel
+	</select>
+	<select id="getResltToStatus" resultType="String">
+		select STATUS from
+		tb_regist_result group by STATUS
+	</select>
+</mapper>

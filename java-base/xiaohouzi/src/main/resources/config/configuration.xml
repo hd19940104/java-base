@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+<system>
+	<category name="system" description="系统相关配置">
+		<item name="username" value="test" descript="演示" />
+	</category>
+	<category name="video" description="video相关配置">
+		<item name="file_path" value="D:\program\apache-tomcat-7.0.88-windows-x64\apache-tomcat-7.0.88\webapps\xiaohouzi\static\imgs" descript="视频图片存储目录" />
+	</category>
+</system>
+

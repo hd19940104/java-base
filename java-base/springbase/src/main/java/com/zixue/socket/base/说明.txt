@@ -1,0 +1,23 @@
+socket 套接字
+标识两个端点之间的连接
+端点：ip+port
+
+TCP	面向连接的通讯协议  
+	通过三次握手建立连接
+UDP	面向无连接的通讯协议
+	包括端口号和源端口号
+	不限于端到端，可以广播发送
+	DatagramSocket
+	DatagramPacket
+
+三次握手(保证连接可靠性)
+	client-->server		syn("x=rand()")
+	server-->client		syn ack("x+1" "y=rand()")
+	client-->sever		ack("x+1" "y+1") + "Application Data"
+
+四次挥手
+	client-->sever		fin=1 seq=u
+	server-->client		ack=1 seq=v ack=u+1
+	client-->server		
+	server-->client		
+ 

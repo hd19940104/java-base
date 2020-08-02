@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zixue.project3.dao.TableRegistUserDao">
+
+
+	<select id="geTableRegistUsers"
+		resultType="com.zixue.project3.bean.TableRegistUser">
+		SELECT
+		u.id id,
+		u.behavior behavior,
+		u.behavior_time
+		behaviorTime,
+		u.regist_channel registChannel,
+		u.user_registration_number userRegistrationNumber
+		FROM
+		tb_regist_user u
+	</select>
+	<select id="tableRegistUserNum" resultType="java.lang.Integer">
+		select count(*) from
+		tb_regist_user u
+	</select>
+	<select id="selectEunmByType"
+		resultType="com.zixue.project3.bean.TableEnum">
+		SELECT
+		te.id id,
+		te.enum_type enumType,
+		te.enum_key enumKey,
+		te.enum_value enumValue
+		FROM
+		tb_enum te
+		WHERE
+		te.enum_type = #{enumType}
+
+	</select>
+	<!-- 全量 ，根据行为事件和渠道分组 -->
+	<select id="geTableRegistUsersByAllDayToBehaviorAndChannel"
+		resultType="com.zixue.project3.bean.TableRegistResult">
+		SELECT
+		t.behavior,
+		t.channel,
+		MIN(t.sum) min,
+		MAX(t.sum) max
+		FROM
+		(
+		SELECT
+		u.behavior behavior,
+		u.regist_channel channel,
+		DATE_FORMAT(u.behavior_time, '%Y%m%d') time,
+		SUM(u.user_registration_number) sum
+		FROM
+		tb_regist_user u
+		GROUP BY
+		u.behavior,
+		channel,
+		time
+		) t
+		GROUP BY
+		t.behavior,
+		t.channel
+	</select>
+	<!-- 全量 ，根据行为事件 -->
+	<select id="geTableRegistUsersByAllDayToBehavior"
+		resultType="com.zixue.project3.bean.TableRegistResult">
+		SELECT
+		t.behavior,
+		MIN(t.sum) min,
+		MAX(t.sum) max
+		FROM
+		(
+		SELECT
+		u.behavior behavior,
+		u.regist_channel channel,
+		DATE_FORMAT(u.behavior_time, '%Y%m%d') time,
+		SUM(u.user_registration_number) sum
+		FROM
+		tb_regist_user u
+		GROUP BY
+		u.behavior,
+		channel,
+		time
+		) t
+		GROUP BY
+		t.behavior
+
+	</select>
+	<!-- 时间段 ，根据行为事件和渠道分组 -->
+	<select id="geTableRegistUsersByHoursToBehaviorAndChannel"
+		resultType="com.zixue.project3.bean.TableRegistResult">
+		SELECT
+		t.behavior,
+		t.channel,
+		MIN(t.sum) min,
+		MAX(t.sum) max
+		FROM
+		(
+		SELECT
+		u.behavior behavior,
+		u.regist_channel channel,
+		DATE_FORMAT(u.behavior_time, '%Y%m%d') time,
+		SUM(u.user_registration_number) sum
+		FROM
+		tb_regist_user u
+		WHERE
+		date_format(u.behavior_time, '%h:%i') BETWEEN #{startTime}
+		AND
+		#{endTime}
+		GROUP BY
+		u.behavior,
+		channel,
+		time
+		) t
+		GROUP BY
+		t.behavior,
+		t.channel
+	</select>
+	<!-- 时间段 ，根据行为事件 -->
+	<select id="geTableRegistUsersByHoursToBehavior"
+		resultType="com.zixue.project3.bean.TableRegistResult">
+		SELECT
+		t.behavior,
+		MIN(t.sum) min,
+		MAX(t.sum) max
+		FROM
+		(
+		SELECT
+		u.behavior behavior,
+		u.regist_channel channel,
+		DATE_FORMAT(u.behavior_time, '%Y%m%d') time,
+		SUM(u.user_registration_number) sum
+		FROM
+		tb_regist_user u
+		WHERE
+		date_format(u.behavior_time, '%h:%i') BETWEEN #{startTime}
+		AND
+		#{endTime}
+		GROUP BY
+		u.behavior,
+		channel,
+		time
+		) t
+		GROUP BY
+		t.behavior
+
+	</select>
+	<select id="getListTableRegistUser"
+		resultType="com.zixue.project3.bean.TableRegistUser">
+		SELECT
+		u.id id,
+		u.behavior behavior,
+		u.behavior_time behaviorTime,
+		u.regist_channel registChannel,
+		u.user_registration_number
+		userRegistretionNumber
+		FROM
+		tb_regist_user u
+		where 1=1
+		<trim prefix="and" suffix="" prefixOverrides="and">
+			<if test="behavior != null">
+
+				and behavior like concat(concat('%', #{behavior}),'%')
+			</if>
+			<if test="registChannel != null">
+				and regist_channel like concat(concat('%',#{registChannel}),'%')
+			</if>
+		</trim>
+	</select>
+</mapper>

@@ -1,0 +1,49 @@
+03-16 14:04:31,619[main][com.zixue.hdfs.HdfsDemo:95][INFO]-dist is exit
+03-16 14:04:31,621[main][com.zixue.hdfs.HdfsDemo:112][INFO]-srcFile is not exit
+03-16 14:04:34,559[main][com.zixue.hdfs.HdfsDemo:236][INFO]-下载成功
+03-16 14:04:34,568[main][com.zixue.hdfs.HdfsDemo:43][INFO]------------------------------------
+03-16 14:04:34,568[main][com.zixue.hdfs.HdfsDemo:50][INFO]-地址：hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz
+03-16 14:04:34,568[main][com.zixue.hdfs.HdfsDemo:51][INFO]-拥有者：hadoop
+03-16 14:04:34,569[main][com.zixue.hdfs.HdfsDemo:52][INFO]-块大小：128M
+03-16 14:04:34,569[main][com.zixue.hdfs.HdfsDemo:53][INFO]-总大小：182M
+03-16 14:04:34,570[main][com.zixue.hdfs.HdfsDemo:54][INFO]-创建时间：2019-03-16 13:54:38
+03-16 14:04:34,570[main][com.zixue.hdfs.HdfsDemo:58][INFO]-块开始位置:0--->
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop109|
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop110|
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop111|
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:63][INFO]-
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:58][INFO]-块开始位置:128--->
+03-16 14:04:34,571[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop111|
+03-16 14:04:34,572[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop109|
+03-16 14:04:34,572[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop108|
+03-16 14:04:34,572[main][com.zixue.hdfs.HdfsDemo:63][INFO]-
+03-16 14:04:34,572[main][com.zixue.hdfs.HdfsDemo:66][INFO]------------------------------------
+03-16 14:04:34,576[main][com.zixue.hdfs.HdfsDemo:71][INFO]-FileStatus{path=hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz; isDirectory=false; length=191753373; replication=3; blocksize=134217728; modification_time=1552715678778; access_time=1552715670043; owner=hadoop; group=supergroup; permission=rw-r--r--; isSymlink=false}
+03-16 14:04:34,576[main][com.zixue.hdfs.HdfsDemo:73][INFO]-hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz
+03-16 14:04:34,576[main][com.zixue.hdfs.HdfsDemo:124][INFO]-文件下载成功
+03-16 14:04:34,579[main][com.zixue.hdfs.HdfsDemo:128][INFO]-文件删除成功
+03-16 14:04:34,686[main][com.zixue.hdfs.HdfsDemo:148][INFO]-文件系统关闭
+03-16 14:20:53,898[main][com.zixue.hdfs.HdfsDemo:95][INFO]-dist is exit
+03-16 14:21:01,006[main][com.zixue.hdfs.HdfsDemo:185][INFO]-上传成功
+03-16 14:21:01,007[main][com.zixue.hdfs.HdfsDemo:191][INFO]-文件删除成功
+03-16 14:21:01,009[main][com.zixue.hdfs.HdfsDemo:105][INFO]-文件上传成功
+03-16 14:21:01,018[main][com.zixue.hdfs.HdfsDemo:43][INFO]------------------------------------
+03-16 14:21:01,018[main][com.zixue.hdfs.HdfsDemo:50][INFO]-地址：hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz
+03-16 14:21:01,018[main][com.zixue.hdfs.HdfsDemo:51][INFO]-拥有者：hadoop
+03-16 14:21:01,018[main][com.zixue.hdfs.HdfsDemo:52][INFO]-块大小：128M
+03-16 14:21:01,018[main][com.zixue.hdfs.HdfsDemo:53][INFO]-总大小：182M
+03-16 14:21:01,019[main][com.zixue.hdfs.HdfsDemo:54][INFO]-创建时间：2019-03-16 14:21:01
+03-16 14:21:01,019[main][com.zixue.hdfs.HdfsDemo:58][INFO]-块开始位置:0--->
+03-16 14:21:01,019[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop108|
+03-16 14:21:01,019[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop110|
+03-16 14:21:01,020[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop111|
+03-16 14:21:01,020[main][com.zixue.hdfs.HdfsDemo:63][INFO]-
+03-16 14:21:01,020[main][com.zixue.hdfs.HdfsDemo:58][INFO]-块开始位置:128--->
+03-16 14:21:01,021[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop111|
+03-16 14:21:01,021[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop109|
+03-16 14:21:01,021[main][com.zixue.hdfs.HdfsDemo:61][INFO]-host:hadoop108|
+03-16 14:21:01,021[main][com.zixue.hdfs.HdfsDemo:63][INFO]-
+03-16 14:21:01,021[main][com.zixue.hdfs.HdfsDemo:66][INFO]------------------------------------
+03-16 14:21:01,024[main][com.zixue.hdfs.HdfsDemo:71][INFO]-FileStatus{path=hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz; isDirectory=false; length=191753373; replication=3; blocksize=134217728; modification_time=1552717261021; access_time=1552717253941; owner=hadoop; group=supergroup; permission=rw-r--r--; isSymlink=false}
+03-16 14:21:01,024[main][com.zixue.hdfs.HdfsDemo:73][INFO]-hdfs://hadoop108:8020/user/hadoop/hadoop-hdfs-demo1001/jdk-8u191-linux-x64.tar.gz
+03-16 14:21:01,124[main][com.zixue.hdfs.HdfsDemo:148][INFO]-文件系统关闭

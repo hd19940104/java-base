@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<addresslist> 
+  <linkman id="2"> 
+    <name>李丽</name>  
+    <email>lichao511216@163.com</email>  
+    <gender>female</gender> 
+  </linkman> 
+</addresslist>

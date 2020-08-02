@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<system>
+	<category name="hdfs" description="hdfs相关配置">
+		<item name="fs-defaultFS" value="hdfs://hadoop108:8020" descript=" 指定HDFS中NameNode的地址" />
+		<item name="username" value="hadoop" descript=" hadoop登录用户" />
+	</category>
+	<category name="zookeeper" description="zookeeper相关配置">
+		<item name="connect" value="hadoop108:2181,hadoop109:2181,hadoop110:2181,hadoop111:2181" descript=" 指定Zookeeper的地址" />
+		<item name="timeout" value="2000" descript="超时时间" />
+	</category>
+</system>
+
