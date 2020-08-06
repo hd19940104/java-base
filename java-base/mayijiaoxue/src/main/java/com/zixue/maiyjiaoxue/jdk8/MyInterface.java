@@ -6,6 +6,12 @@ package com.zixue.maiyjiaoxue.jdk8;
 //    public void demo();
     //重写父类Object 不算
     public String toString();
+    static  void  demo(){
+        System.out.println("this is static()");
+    }
+    default void dd(){
+        System.out.println("this is default()ß");
+    }
 }
 class MyTest{
     public void mytest(MyInterface myInterface){

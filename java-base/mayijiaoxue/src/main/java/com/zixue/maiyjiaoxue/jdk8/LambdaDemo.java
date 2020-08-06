@@ -16,9 +16,13 @@ public class LambdaDemo {
     }
     void demo() {
         List list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
         list.forEach(l -> {
 
         });
+        list.forEach(System.out::println);
         new Thread(new Runnable() {
             @Override
             public void run() {
