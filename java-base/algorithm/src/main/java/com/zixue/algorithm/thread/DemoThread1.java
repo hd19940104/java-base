@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DemoThread1 {
     static AtomicInteger numa=new AtomicInteger(0);
     static  int num=0;
-    static  CyclicBarrier cyclicBarrier=new CyclicBarrier(100);
+    static  CyclicBarrier cyclicBarrier=new CyclicBarrier(1001);
     static CountDownLatch countDownLatch=new CountDownLatch(100000);
     public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
 
