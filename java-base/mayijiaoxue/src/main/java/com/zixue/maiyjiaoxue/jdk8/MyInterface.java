@@ -32,6 +32,10 @@ class MyTest{
         myTest.mytest(()->{
             System.out.println("this is interface");
         });
+        MyInterface myInterface =()->{
+            System.out.println("this is interface");
+        };
+        System.out.println(myInterface.getClass().getInterfaces()[0]);
     }
 
 
