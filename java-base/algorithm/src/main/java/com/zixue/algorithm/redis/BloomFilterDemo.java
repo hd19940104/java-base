@@ -31,7 +31,7 @@ import com.google.common.hash.Funnels;
  *
  */
 public class BloomFilterDemo {
-    private static int total = 1000000;
+    private static int total = 10000000;
 //    private static BloomFilter<Integer> bf =
 //            BloomFilter.create(Funnels.integerFunnel(), total);
  private static BloomFilter<Integer> bf =
