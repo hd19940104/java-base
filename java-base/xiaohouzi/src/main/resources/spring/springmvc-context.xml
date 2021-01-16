@@ -38,9 +38,9 @@
 		<property name="resolveLazily" value="true" />
 	</bean>
 	<!--使用shiro注解的配置-->
-    <aop:config proxy-target-class="true"></aop:config>
+   <!-- <aop:config proxy-target-class="true"></aop:config>
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>
-    </bean>
+    </bean>-->
 	
 </beans>
