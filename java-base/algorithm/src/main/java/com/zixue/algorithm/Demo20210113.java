@@ -14,7 +14,7 @@ public class Demo20210113 {
         Vector vector = new Vector();
         ArrayList arrayList = new ArrayList();
         LinkedList linkedList = new LinkedList();
-
+        HashMap hash=new HashMap();
         Executors.newCachedThreadPool();
         AtomicInteger integer=new AtomicInteger(1);
 

@@ -31,6 +31,8 @@ public class Demo20210109 {
         int data;
         ListNode head;
         ListNode tail;
+        String string="";
+        
 
     }
     public ListNode addTwoNumbers(ListNode l1,ListNode l2){
@@ -43,9 +45,7 @@ public class Demo20210109 {
         return listNode;
 
     }
-    public static void main(String[] args) {
 
-    }
 
     /**
      * 冒泡排序
