@@ -1,4 +1,4 @@
-package com.zixue.algorithm;
+package com.zixue.algorithm.test;
 
 public class Demo {
 
