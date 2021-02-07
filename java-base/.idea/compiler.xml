@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jvm" />
+        <module name="process" />
+        <module name="hadoop-hdfs-demo1001" />
+        <module name="mayijiaoxue" />
+        <module name="juc" />
+        <module name="spring-base" />
+        <module name="netty_test" />
+        <module name="xiaohouzi" />
+        <module name="algorithm" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="algorithm" target="1.8" />
+      <module name="hadoop-hdfs-demo1001" target="1.8" />
+      <module name="juc" target="1.8" />
+      <module name="jvm" target="1.8" />
+      <module name="mayijiaoxue" target="8" />
+      <module name="netty_test" target="8" />
+      <module name="process" target="1.8" />
+      <module name="spring-base" target="8" />
+      <module name="xiaohouzi" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

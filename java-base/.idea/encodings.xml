@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/algorithm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/juc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/juc/src/main/java/com/zixue/test/Book.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mayijiaoxue/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/netty_test/src/main/java/com/zixue/netty/TCChannelManage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/netty_test/src/main/java/com/zixue/netty/TCNettyServer.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/netty_test/src/main/java/com/zixue/netty/TCWebSocketChannelHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/netty_test/src/main/java/com/zixue/netty/TCWebSocketHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/process/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/process/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbase/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaohouzi/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

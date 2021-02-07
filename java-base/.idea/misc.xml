@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/xiaohouzi/pom.xml" />
+        <option value="$PROJECT_DIR$/springbase/pom.xml" />
+        <option value="$PROJECT_DIR$/process/pom.xml" />
+        <option value="$PROJECT_DIR$/netty_test/pom.xml" />
+        <option value="$PROJECT_DIR$/mayijiaoxue/pom.xml" />
+        <option value="$PROJECT_DIR$/jvm/pom.xml" />
+        <option value="$PROJECT_DIR$/juc/pom.xml" />
+        <option value="$PROJECT_DIR$/hadoop-hdfs-demo1001/pom.xml" />
+        <option value="$PROJECT_DIR$/algorithm/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hadoop-hdfs-demo1001/hadoop-hdfs-demo1001.iml" filepath="$PROJECT_DIR$/hadoop-hdfs-demo1001/hadoop-hdfs-demo1001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-base.iml" filepath="$PROJECT_DIR$/.idea/java-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/juc/juc.iml" filepath="$PROJECT_DIR$/juc/juc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jvm/jvm.iml" filepath="$PROJECT_DIR$/jvm/jvm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mayijiaoxue/mayijiaoxue.iml" filepath="$PROJECT_DIR$/mayijiaoxue/mayijiaoxue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty_test/netty_test.iml" filepath="$PROJECT_DIR$/netty_test/netty_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/process/process.iml" filepath="$PROJECT_DIR$/process/process.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbase/spring-base.iml" filepath="$PROJECT_DIR$/springbase/spring-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xiaohouzi/xiaohouzi.iml" filepath="$PROJECT_DIR$/xiaohouzi/xiaohouzi.iml" />
+    </modules>
+  </component>
+</project>
