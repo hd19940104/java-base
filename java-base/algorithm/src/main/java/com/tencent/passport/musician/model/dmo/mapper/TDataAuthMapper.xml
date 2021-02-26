@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.passport.musician.repository.dao.TDataAuthMapper" >
+  <resultMap id="BaseResultMap" type="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="biz_id" property="bizId" jdbcType="CHAR" />
+    <result column="tenant" property="tenant" jdbcType="CHAR" />
+    <result column="tenant_term" property="tenantTerm" jdbcType="CHAR" />
+    <result column="ccode" property="ccode" jdbcType="VARCHAR" />
+    <result column="ctime" property="ctime" jdbcType="TIMESTAMP" />
+    <result column="ucode" property="ucode" jdbcType="VARCHAR" />
+    <result column="utime" property="utime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="name_text" property="nameText" jdbcType="VARCHAR" />
+    <result column="desc_text" property="descText" jdbcType="VARCHAR" />
+    <result column="mark_code" property="markCode" jdbcType="CHAR" />
+    <result column="mode" property="mode" jdbcType="VARCHAR" />
+    <result column="cond_sql" property="condSql" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.tencent.passport.musician.model.dmo.TDataAuth" extends="BaseResultMap" >
+    <result column="extend_data" property="extendData" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, biz_id, tenant, tenant_term, ccode, ctime, ucode, utime, deleted, remark, name_text, 
+    desc_text, mark_code, mode, cond_sql
+  </sql>
+  <sql id="Blob_Column_List" >
+    extend_data
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.tencent.passport.musician.model.dmo.TDataAuthExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_data_auth
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tencent.passport.musician.model.dmo.TDataAuthExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_data_auth
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_data_auth
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_data_auth
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tencent.passport.musician.model.dmo.TDataAuthExample" >
+    delete from t_data_auth
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    insert into t_data_auth (id, biz_id, tenant, 
+      tenant_term, ccode, ctime, 
+      ucode, utime, deleted, 
+      remark, name_text, desc_text, 
+      mark_code, mode, cond_sql, 
+      extend_data)
+    values (#{id,jdbcType=INTEGER}, #{bizId,jdbcType=CHAR}, #{tenant,jdbcType=CHAR}, 
+      #{tenantTerm,jdbcType=CHAR}, #{ccode,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}, 
+      #{ucode,jdbcType=VARCHAR}, #{utime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR}, #{nameText,jdbcType=VARCHAR}, #{descText,jdbcType=VARCHAR}, 
+      #{markCode,jdbcType=CHAR}, #{mode,jdbcType=VARCHAR}, #{condSql,jdbcType=CHAR}, 
+      #{extendData,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    insert into t_data_auth
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="bizId != null" >
+        biz_id,
+      </if>
+      <if test="tenant != null" >
+        tenant,
+      </if>
+      <if test="tenantTerm != null" >
+        tenant_term,
+      </if>
+      <if test="ccode != null" >
+        ccode,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="ucode != null" >
+        ucode,
+      </if>
+      <if test="utime != null" >
+        utime,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="nameText != null" >
+        name_text,
+      </if>
+      <if test="descText != null" >
+        desc_text,
+      </if>
+      <if test="markCode != null" >
+        mark_code,
+      </if>
+      <if test="mode != null" >
+        mode,
+      </if>
+      <if test="condSql != null" >
+        cond_sql,
+      </if>
+      <if test="extendData != null" >
+        extend_data,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bizId != null" >
+        #{bizId,jdbcType=CHAR},
+      </if>
+      <if test="tenant != null" >
+        #{tenant,jdbcType=CHAR},
+      </if>
+      <if test="tenantTerm != null" >
+        #{tenantTerm,jdbcType=CHAR},
+      </if>
+      <if test="ccode != null" >
+        #{ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ucode != null" >
+        #{ucode,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null" >
+        #{utime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="nameText != null" >
+        #{nameText,jdbcType=VARCHAR},
+      </if>
+      <if test="descText != null" >
+        #{descText,jdbcType=VARCHAR},
+      </if>
+      <if test="markCode != null" >
+        #{markCode,jdbcType=CHAR},
+      </if>
+      <if test="mode != null" >
+        #{mode,jdbcType=VARCHAR},
+      </if>
+      <if test="condSql != null" >
+        #{condSql,jdbcType=CHAR},
+      </if>
+      <if test="extendData != null" >
+        #{extendData,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tencent.passport.musician.model.dmo.TDataAuthExample" resultType="java.lang.Integer" >
+    select count(*) from t_data_auth
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_data_auth
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.bizId != null" >
+        biz_id = #{record.bizId,jdbcType=CHAR},
+      </if>
+      <if test="record.tenant != null" >
+        tenant = #{record.tenant,jdbcType=CHAR},
+      </if>
+      <if test="record.tenantTerm != null" >
+        tenant_term = #{record.tenantTerm,jdbcType=CHAR},
+      </if>
+      <if test="record.ccode != null" >
+        ccode = #{record.ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctime != null" >
+        ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ucode != null" >
+        ucode = #{record.ucode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.utime != null" >
+        utime = #{record.utime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleted != null" >
+        deleted = #{record.deleted,jdbcType=BIT},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameText != null" >
+        name_text = #{record.nameText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.descText != null" >
+        desc_text = #{record.descText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.markCode != null" >
+        mark_code = #{record.markCode,jdbcType=CHAR},
+      </if>
+      <if test="record.mode != null" >
+        mode = #{record.mode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.condSql != null" >
+        cond_sql = #{record.condSql,jdbcType=CHAR},
+      </if>
+      <if test="record.extendData != null" >
+        extend_data = #{record.extendData,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_data_auth
+    set id = #{record.id,jdbcType=INTEGER},
+      biz_id = #{record.bizId,jdbcType=CHAR},
+      tenant = #{record.tenant,jdbcType=CHAR},
+      tenant_term = #{record.tenantTerm,jdbcType=CHAR},
+      ccode = #{record.ccode,jdbcType=VARCHAR},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      ucode = #{record.ucode,jdbcType=VARCHAR},
+      utime = #{record.utime,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=BIT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      name_text = #{record.nameText,jdbcType=VARCHAR},
+      desc_text = #{record.descText,jdbcType=VARCHAR},
+      mark_code = #{record.markCode,jdbcType=CHAR},
+      mode = #{record.mode,jdbcType=VARCHAR},
+      cond_sql = #{record.condSql,jdbcType=CHAR},
+      extend_data = #{record.extendData,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_data_auth
+    set id = #{record.id,jdbcType=INTEGER},
+      biz_id = #{record.bizId,jdbcType=CHAR},
+      tenant = #{record.tenant,jdbcType=CHAR},
+      tenant_term = #{record.tenantTerm,jdbcType=CHAR},
+      ccode = #{record.ccode,jdbcType=VARCHAR},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      ucode = #{record.ucode,jdbcType=VARCHAR},
+      utime = #{record.utime,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=BIT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      name_text = #{record.nameText,jdbcType=VARCHAR},
+      desc_text = #{record.descText,jdbcType=VARCHAR},
+      mark_code = #{record.markCode,jdbcType=CHAR},
+      mode = #{record.mode,jdbcType=VARCHAR},
+      cond_sql = #{record.condSql,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    update t_data_auth
+    <set >
+      <if test="bizId != null" >
+        biz_id = #{bizId,jdbcType=CHAR},
+      </if>
+      <if test="tenant != null" >
+        tenant = #{tenant,jdbcType=CHAR},
+      </if>
+      <if test="tenantTerm != null" >
+        tenant_term = #{tenantTerm,jdbcType=CHAR},
+      </if>
+      <if test="ccode != null" >
+        ccode = #{ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ucode != null" >
+        ucode = #{ucode,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null" >
+        utime = #{utime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="nameText != null" >
+        name_text = #{nameText,jdbcType=VARCHAR},
+      </if>
+      <if test="descText != null" >
+        desc_text = #{descText,jdbcType=VARCHAR},
+      </if>
+      <if test="markCode != null" >
+        mark_code = #{markCode,jdbcType=CHAR},
+      </if>
+      <if test="mode != null" >
+        mode = #{mode,jdbcType=VARCHAR},
+      </if>
+      <if test="condSql != null" >
+        cond_sql = #{condSql,jdbcType=CHAR},
+      </if>
+      <if test="extendData != null" >
+        extend_data = #{extendData,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    update t_data_auth
+    set biz_id = #{bizId,jdbcType=CHAR},
+      tenant = #{tenant,jdbcType=CHAR},
+      tenant_term = #{tenantTerm,jdbcType=CHAR},
+      ccode = #{ccode,jdbcType=VARCHAR},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      ucode = #{ucode,jdbcType=VARCHAR},
+      utime = #{utime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      name_text = #{nameText,jdbcType=VARCHAR},
+      desc_text = #{descText,jdbcType=VARCHAR},
+      mark_code = #{markCode,jdbcType=CHAR},
+      mode = #{mode,jdbcType=VARCHAR},
+      cond_sql = #{condSql,jdbcType=CHAR},
+      extend_data = #{extendData,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tencent.passport.musician.model.dmo.TDataAuth" >
+    update t_data_auth
+    set biz_id = #{bizId,jdbcType=CHAR},
+      tenant = #{tenant,jdbcType=CHAR},
+      tenant_term = #{tenantTerm,jdbcType=CHAR},
+      ccode = #{ccode,jdbcType=VARCHAR},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      ucode = #{ucode,jdbcType=VARCHAR},
+      utime = #{utime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      name_text = #{nameText,jdbcType=VARCHAR},
+      desc_text = #{descText,jdbcType=VARCHAR},
+      mark_code = #{markCode,jdbcType=CHAR},
+      mode = #{mode,jdbcType=VARCHAR},
+      cond_sql = #{condSql,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.passport.musician.repository.dao.TRoleTreeMapper" >
+  <resultMap id="BaseResultMap" type="com.tencent.passport.musician.model.dmo.TRoleTree" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="descendant_role_code" property="descendantRoleCode" jdbcType="VARCHAR" />
+    <result column="ancestor_role_code" property="ancestorRoleCode" jdbcType="VARCHAR" />
+    <result column="relator" property="relator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, descendant_role_code, ancestor_role_code, relator
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tencent.passport.musician.model.dmo.TRoleTreeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_role_tree
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_role_tree
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_role_tree
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tencent.passport.musician.model.dmo.TRoleTreeExample" >
+    delete from t_role_tree
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tencent.passport.musician.model.dmo.TRoleTree" >
+    insert into t_role_tree (id, descendant_role_code, ancestor_role_code, 
+      relator)
+    values (#{id,jdbcType=INTEGER}, #{descendantRoleCode,jdbcType=VARCHAR}, #{ancestorRoleCode,jdbcType=VARCHAR}, 
+      #{relator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tencent.passport.musician.model.dmo.TRoleTree" >
+    insert into t_role_tree
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="descendantRoleCode != null" >
+        descendant_role_code,
+      </if>
+      <if test="ancestorRoleCode != null" >
+        ancestor_role_code,
+      </if>
+      <if test="relator != null" >
+        relator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="descendantRoleCode != null" >
+        #{descendantRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ancestorRoleCode != null" >
+        #{ancestorRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="relator != null" >
+        #{relator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tencent.passport.musician.model.dmo.TRoleTreeExample" resultType="java.lang.Integer" >
+    select count(*) from t_role_tree
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_role_tree
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.descendantRoleCode != null" >
+        descendant_role_code = #{record.descendantRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ancestorRoleCode != null" >
+        ancestor_role_code = #{record.ancestorRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relator != null" >
+        relator = #{record.relator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_role_tree
+    set id = #{record.id,jdbcType=INTEGER},
+      descendant_role_code = #{record.descendantRoleCode,jdbcType=VARCHAR},
+      ancestor_role_code = #{record.ancestorRoleCode,jdbcType=VARCHAR},
+      relator = #{record.relator,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tencent.passport.musician.model.dmo.TRoleTree" >
+    update t_role_tree
+    <set >
+      <if test="descendantRoleCode != null" >
+        descendant_role_code = #{descendantRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ancestorRoleCode != null" >
+        ancestor_role_code = #{ancestorRoleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="relator != null" >
+        relator = #{relator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tencent.passport.musician.model.dmo.TRoleTree" >
+    update t_role_tree
+    set descendant_role_code = #{descendantRoleCode,jdbcType=VARCHAR},
+      ancestor_role_code = #{ancestorRoleCode,jdbcType=VARCHAR},
+      relator = #{relator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
